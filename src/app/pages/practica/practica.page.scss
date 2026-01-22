@@ -1,0 +1,127 @@
+/* ================= FONDO ================= */
+.home-content {
+  --background: radial-gradient(circle at right, #1a1a1a 0%, #0d0d0d 60%);
+  color: #fff;
+}
+
+/* ================= BARRA ================= */
+.top-bar {
+  --background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+ion-toolbar {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+}
+
+.nav-links ion-router-link {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links ion-router-link:hover {
+  color: #3c39e6;
+}
+
+/* ================= CONTENEDOR ================= */
+.quiz-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 120px 20px 60px;
+}
+
+/* ================= SELECTOR DE NIVELES ================= */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 18px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.level-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-box span {
+  font-size: 12px;
+  color: #bdbdbd;
+  letter-spacing: 1px;
+}
+
+.level-box strong {
+  display: block;
+  font-size: 28px;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.level-box:hover {
+  background: #3c39e6;
+  transform: translateY(-4px);
+}
+
+/* ================= QUIZ ================= */
+ion-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+ion-card-content {
+  font-size: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ================= OPCIONES ================= */
+.option-btn {
+  width: 100%;
+  margin-top: 14px;
+  --background: rgba(255, 255, 255, 0.08);
+  --border-radius: 14px;
+  height: 48px;
+  text-transform: none;
+  transition: 0.3s;
+}
+
+.option-btn:hover {
+  --background: #3c39e6;
+}
+
+/* ================= FEEDBACK ================= */
+.feedback {
+  margin-top: 18px;
+  font-size: 18px;
+}
+
+.feedback.correct {
+  color: #4caf50;
+}
+
+.feedback.incorrect {
+  color: #f44336;
+}

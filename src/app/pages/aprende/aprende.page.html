@@ -1,0 +1,182 @@
+<!-- ================= BARRA DE NAVEGACIÓN ================= -->
+<ion-header slot="fixed" class="top-bar">
+  <ion-toolbar>
+    <div class="nav-wrapper">
+      <nav class="nav-links">
+        <a routerLink="/nosotros">Nosotros</a>
+        <a routerLink="/inicio">Inicio</a>
+        <a routerLink="/practica">Práctica</a>
+        <a routerLink="/juego">Juego de mesa</a>
+      </nav>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ================= CONTENIDO ================= -->
+<ion-content fullscreen class="home-content">
+  <div class="learn-container">
+
+    <h1>Aprende Bases de Datos</h1>
+    <p class="intro">
+      Esta sección está organizada por niveles progresivos.
+      Cada nivel desarrolla conceptos fundamentales de bases de datos,
+      desde lo más básico hasta el diseño y uso inicial de SQL.
+    </p>
+
+    <!-- ================= NIVEL 1 ================= -->
+    <ion-card class="level-card" (click)="seleccionarNivel(1)">
+      <ion-card-content>
+        <h2>🟢 Nivel 1 · Fundamentos de Bases de Datos</h2>
+        <p>Conceptos esenciales y propósito de las bases de datos</p>
+      </ion-card-content>
+    </ion-card>
+
+    <section class="learn-card" *ngIf="nivelSeleccionado === 1">
+      <p>
+        Una <strong>base de datos</strong> es un conjunto organizado de datos
+        que permite almacenar información de forma estructurada para su
+        posterior consulta, modificación y análisis.
+      </p>
+      <p>
+        En la actualidad, las bases de datos están presentes en casi todos
+        los sistemas informáticos: instituciones educativas, hospitales,
+        bancos, redes sociales y aplicaciones móviles.
+      </p>
+      <p>
+        Es importante diferenciar entre <strong>datos</strong> e
+        <strong>información</strong>. Los datos son hechos sin procesar,
+        mientras que la información es el resultado de analizar y organizar
+        esos datos.
+      </p>
+      <ul>
+        <li>Datos vs información</li>
+        <li>Ventajas del uso de bases de datos</li>
+        <li>Acceso rápido y seguro a la información</li>
+        <li>Integridad y consistencia de los datos</li>
+      </ul>
+      <ion-button expand="block" (click)="irAPractica()">Practicar Nivel 1</ion-button>
+    </section>
+
+    <!-- ================= NIVEL 2 ================= -->
+    <ion-card class="level-card" (click)="seleccionarNivel(2)">
+      <ion-card-content>
+        <h2>🟡 Nivel 2 · Tipos de Bases de Datos</h2>
+        <p>Clasificación según estructura y uso</p>
+      </ion-card-content>
+    </ion-card>
+
+    <section class="learn-card" *ngIf="nivelSeleccionado === 2">
+      <p>
+        Las bases de datos pueden clasificarse de acuerdo a su estructura,
+        forma de almacenamiento y propósito.
+      </p>
+      <p>
+        Las <strong>bases de datos relacionales</strong> organizan la información
+        en tablas relacionadas entre sí mediante claves primarias y foráneas.
+        Son las más utilizadas en sistemas académicos y empresariales.
+      </p>
+      <p>
+        Las <strong>bases de datos no relacionales (NoSQL)</strong> se utilizan
+        cuando se requiere manejar grandes volúmenes de datos no estructurados.
+      </p>
+      <ul>
+        <li>Bases de datos relacionales</li>
+        <li>Bases de datos NoSQL</li>
+        <li>Bases de datos centralizadas</li>
+        <li>Bases de datos distribuidas</li>
+        <li>Bases de datos locales y en la nube</li>
+      </ul>
+      <ion-button expand="block" (click)="irAPractica()">Practicar Nivel 2</ion-button>
+    </section>
+
+    <!-- ================= NIVEL 3 ================= -->
+    <ion-card class="level-card" (click)="seleccionarNivel(3)">
+      <ion-card-content>
+        <h2>🟠 Nivel 3 · Entidades e Interrelaciones</h2>
+        <p>Elementos fundamentales del modelado</p>
+      </ion-card-content>
+    </ion-card>
+
+    <section class="learn-card" *ngIf="nivelSeleccionado === 3">
+      <p>
+        Una <strong>entidad</strong> representa un objeto del mundo real del
+        cual se desea almacenar información dentro de una base de datos.
+      </p>
+      <p>
+        Cada entidad posee <strong>atributos</strong> que describen sus
+        características principales.
+      </p>
+      <p>
+        Las <strong>interrelaciones</strong> describen cómo se conectan dos
+        o más entidades, indicando la forma en que interactúan entre sí.
+      </p>
+      <p>
+        Ejemplo: Un estudiante se matricula en un curso.
+      </p>
+      <ul>
+        <li>Entidades fuertes y débiles</li>
+        <li>Atributos simples y compuestos</li>
+        <li>Relaciones uno a uno, uno a muchos y muchos a muchos</li>
+      </ul>
+      <ion-button expand="block" (click)="irAPractica()">Practicar Nivel 3</ion-button>
+    </section>
+
+    <!-- ================= NIVEL 4 ================= -->
+    <ion-card class="level-card" (click)="seleccionarNivel(4)">
+      <ion-card-content>
+        <h2>🔵 Nivel 4 · Modelo Entidad–Relación</h2>
+        <p>Diseño conceptual de bases de datos</p>
+      </ion-card-content>
+    </ion-card>
+
+    <section class="learn-card" *ngIf="nivelSeleccionado === 4">
+      <p>
+        El <strong>Modelo Entidad–Relación (E-R)</strong> permite representar
+        gráficamente la estructura de una base de datos antes de su
+        implementación física.
+      </p>
+      <p>
+        Este modelo ayuda a identificar entidades, relaciones, atributos
+        y restricciones del sistema.
+      </p>
+      <ul>
+        <li>Entidades y atributos</li>
+        <li>Relaciones y cardinalidades</li>
+        <li>Claves primarias y foráneas</li>
+        <li>Reglas de integridad</li>
+      </ul>
+      <ion-button expand="block" (click)="irAPractica()">Practicar Nivel 4</ion-button>
+    </section>
+
+    <!-- ================= NIVEL 5 ================= -->
+    <ion-card class="level-card" (click)="seleccionarNivel(5)">
+      <ion-card-content>
+        <h2>🟣 Nivel 5 · Generalización y Especialización</h2>
+        <p>Jerarquías de entidades</p>
+      </ion-card-content>
+    </ion-card>
+
+    <section class="learn-card" *ngIf="nivelSeleccionado === 5">
+      <p>
+        La <strong>generalización</strong> permite agrupar entidades que
+        comparten características comunes dentro de una entidad más general.
+      </p>
+      <p>
+        La <strong>especialización</strong> es el proceso inverso, donde una
+        entidad general se divide en entidades más específicas.
+      </p>
+      <p>
+        Este concepto permite crear modelos más claros y reutilizables.
+      </p>
+      <ul>
+        <li>Jerarquías de entidades</li>
+        <li>Herencia de atributos</li>
+        <li>Ejemplos prácticos académicos</li>
+      </ul>
+      <ion-button expand="block" (click)="irAPractica()">Practicar Nivel 5</ion-button>
+    </section>
+
+   
+
+  </div>
+</ion-content>

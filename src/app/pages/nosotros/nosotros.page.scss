@@ -1,0 +1,129 @@
+/* ===== FONDO GENERAL ===== */
+.nosotros-content {
+  --background: radial-gradient(
+    circle at center,
+    #1a1a1a 0%,
+    #0d0d0d 60%
+  );
+  color: #ffffff;
+}
+
+/* ===== HEADER / NAV ===== */
+.top-bar {
+  --background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1000;
+}
+
+ion-header {
+  z-index: 1000;
+}
+
+ion-toolbar {
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== CONTENEDOR NAV (CENTRADO Y CLICKEABLE) ===== */
+.nav-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 60px;
+}
+
+/* ===== LINKS NAVEGACIÓN ===== */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #3c39e6;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+  color: #3c39e6;
+}
+
+.nav-links a:hover::after {
+  width: 60%;
+}
+
+
+/* ===== CONTENIDO NOSOTROS ===== */
+.nosotros-wrapper {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.nosotros-box {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* ===== TÍTULO ===== */
+.nosotros-box h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.nosotros-box h1 span {
+  color: #3c39e6;
+}
+
+/* ===== TEXTO ===== */
+.nosotros-box p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #bdbdbd;
+  margin-bottom: 28px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-wrapper {
+    padding: 0 24px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+
+  .nosotros-box h1 {
+    font-size: 42px;
+  }
+
+  .nosotros-box p {
+    font-size: 16px;
+  }
+}

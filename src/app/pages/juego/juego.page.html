@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar class="top-bar">
+    <div class="nav-wrapper">
+      <div class="nav-links">
+        <a routerLink="/nosotros">Nosotros</a>
+        <a routerLink="/aprende">Aprende</a>
+        <a routerLink="/practica">Practica</a>
+        <a routerLink="/inicio">Inicio</a>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen class="home-content">
+
+  <div class="game-container">
+
+    <!-- BUSCAR CARTA -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> Busca la carta de juego</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input
+          type="number"
+          placeholder="Ingresa un número del 1 al 18"
+          [(ngModel)]="numeroCarta"
+        ></ion-input>
+
+        <ion-button expand="block" class="search-btn" (click)="buscarCarta()">
+          Buscar carta
+        </ion-button>
+
+        <p class="card-text" *ngIf="textoCarta">
+          {{ textoCarta }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- DESCARGA -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> Descarga juego de mesa</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p class="download-text">
+          Descarga el juego de mesa en formato imprimible y aprende jugando.
+        </p>
+
+        <ion-button
+          expand="block"
+          color="primary"
+          href="https://TU-LINK-AQUI.com"
+          target="_blank"
+        >
+          Descargar para imprimir
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+</ion-content>

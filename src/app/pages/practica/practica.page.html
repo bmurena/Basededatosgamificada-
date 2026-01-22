@@ -1,0 +1,57 @@
+<!-- ================= BARRA DE NAVEGACIÓN ================= -->
+<ion-header class="top-bar">
+  <ion-toolbar>
+    <div class="nav-wrapper">
+      <nav class="nav-links">
+        <ion-router-link routerLink="/nosotros">Nosotros</ion-router-link>
+        <ion-router-link routerLink="/aprende">Aprende</ion-router-link>
+        <ion-router-link routerLink="/inicio">Inicio</ion-router-link>
+        <ion-router-link routerLink="/juego">Juego de mesa</ion-router-link>
+      </nav>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ================= CONTENIDO ================= -->
+<ion-content fullscreen class="home-content">
+  <div class="quiz-container">
+
+    <!-- ================= SELECTOR DE NIVELES ================= -->
+    <div class="levels-grid" *ngIf="nivelActual === 0">
+      <div
+        class="level-box"
+        *ngFor="let n of [1,2,3,4,5]"
+        (click)="iniciarNivel(n)">
+        <span>NIVEL</span>
+        <strong>{{ n }}</strong>
+      </div>
+    </div>
+
+    <!-- ================= QUIZ ================= -->
+    <ion-card *ngIf="nivelActual !== 0">
+      <ion-card-content>
+
+        <h2>
+          {{ preguntas[nivelActual][preguntaActual]?.texto }}
+        </h2>
+
+        <ion-button
+          class="option-btn"
+          *ngFor="let op of preguntas[nivelActual][preguntaActual]?.opciones; let i = index"
+          (click)="responder(i)">
+          {{ op }}
+        </ion-button>
+
+        <p
+          class="feedback"
+          [class.correct]="feedback.includes('✅')"
+          [class.incorrect]="feedback.includes('❌')">
+          {{ feedback }}
+        </p>
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>
+

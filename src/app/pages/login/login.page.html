@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ modo === 'login' ? 'Iniciar sesión' : 'Registrarse' }}
+    </ion-title>
+    <ion-button slot="end" fill="clear" (click)="cerrar()">✕</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- LOGIN -->
+  <div *ngIf="modo === 'login'">
+
+    <ion-item>
+      <ion-input
+        label="Usuario"
+        [(ngModel)]="usuario"
+        placeholder="Ingresa tu usuario">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Ingresa tu contraseña">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="iniciarSesion()">
+      INICIAR SESIÓN
+    </ion-button>
+
+    <ion-button fill="clear" expand="block" (click)="cambiarModo('registro')">
+      ¿No tienes cuenta? Regístrate
+    </ion-button>
+
+  </div>
+
+  <!-- REGISTRO -->
+  <div *ngIf="modo === 'registro'">
+
+    <ion-item>
+      <ion-input
+        label="Nombre"
+        [(ngModel)]="nombre"
+        placeholder="Nombre completo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Correo"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="correo@email.com">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        type="password"
+        [(ngModel)]="passwordReg">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Confirmar contraseña"
+        type="password"
+        [(ngModel)]="confirmar">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="registrarse()">
+      REGISTRARSE
+    </ion-button>
+
+    <ion-button fill="clear" expand="block" (click)="cambiarModo('login')">
+      Volver a iniciar sesión
+    </ion-button>
+
+  </div>
+
+</ion-content>
