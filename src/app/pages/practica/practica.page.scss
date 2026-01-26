@@ -45,14 +45,7 @@ ion-toolbar {
 }
 
 .nav-links a:hover::after {
- position: absolute;
-  bottom: -8px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #3c39e6;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);;
+  width: 60%;
 }
 /* ================= CONTENEDOR ================= */
 .quiz-container {
