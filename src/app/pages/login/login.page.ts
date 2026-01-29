@@ -28,8 +28,9 @@ interface Usuario {
     IonItem,
     IonInput,
     CommonModule,
-    FormsModule
-  ]
+    FormsModule,
+    IonContent
+]
 })
 export class LoginPage implements OnInit {
 

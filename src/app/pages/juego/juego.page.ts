@@ -70,15 +70,15 @@ throw new Error('Method not implemented.');
     'Respuesta correcta: b) En la notación estándar de Chen, los rectángulos son entidades, los elipses atributos y los rombos relaciones.',
     'Respuesta correcta: c) Cada elemento de la Entidad A corresponde estrictamente a uno de la Entidad B.',
     'Respuesta correcta: b) Es un modelo conceptual que define qué datos se guardan y cómo se conectan entre sí, antes de pasar al diseño físico.',
-    'Generalización.',
-    'Especialización.',
-    'Atributo compuesto.',
-    'Atributo multivaluado.',
-    'Dominio de un atributo.',
-    'Integridad referencial.',
-    'Normalización básica.',
-    'Dependencia funcional.',
-    'Diseño lógico de BD.'
+    'Respuesta correcta: c) Es otra forma de notar la relación de muchos a muchos.',
+    'Respuesta correcta: a) Es un proceso de abstracción donde se identifican subgrupos especializados de una entidad más general.',
+    'Respuesta correcta: a) Representa la forma en que las entidades interactúan o se asocian dentro del sistema.',
+    'Respuesta correcta: b) La falta de normalización causa repetición innecesaria de datos y problemas al insertar, borrar o actualizar información.',
+    'Respuesta correcta: b) Se hace a veces por rendimiento para evitar "Joins" complejos, sacrificando espacio y limpieza por velocidad de lectura.',
+    'Respuesta correcta: c) Es sinónimo de clave primaria o candidato; su valor permite distinguir un registro de todos los demás.',
+    'Respuesta correcta: b) Es un atributo que tiene componentes internos.',
+    'Respuesta correcta: b) También llamado atómico; es el nivel más básico de información que no tiene sentido descomponer.',
+    'Respuesta correcta: c) Indica el número de ocurrencias de una entidad que pueden estar asociadas a una ocurrencia de otra entidad.'
   ];
 
   constructor(private modalCtrl: ModalController) {

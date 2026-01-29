@@ -36,3 +36,22 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
+
+ion-modal {
+  --background: transparent !important;
+}
+
+ion-modal::part(content) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* backdrop oscuro pero elegante */
+ion-backdrop {
+  background: rgb(0, 0, 0) !important;
+}
+
+/* evita fondo blanco interno */
+ion-content {
+  --background: transparent !important;
+}
