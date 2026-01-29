@@ -5,13 +5,17 @@ import {
   ModalController,
   AlertController,
   IonContent,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonButton,
   IonItem,
   IonInput
 } from '@ionic/angular/standalone';
+
+interface Usuario {
+  nombre: string;
+  usuario: string;
+  email: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -20,9 +24,6 @@ import {
   standalone: true,
   imports: [
     IonContent,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonButton,
     IonItem,
     IonInput,
@@ -35,21 +36,31 @@ export class LoginPage implements OnInit {
   modo: 'login' | 'registro' = 'login';
 
   // LOGIN
-  usuario: string = '';
-  password: string = '';
+  loginId = '';
+  password = '';
 
   // REGISTRO
-  nombre: string = '';
-  email: string = '';
-  passwordReg: string = '';
-  confirmar: string = '';
+  nombre = '';
+  usuarioReg = '';
+  email = '';
+  passwordReg = '';
+  confirmar = '';
+
+  // "Base de datos" temporal
+  usuarios: Usuario[] = [];
 
   constructor(
     private modalCtrl: ModalController,
     private alertCtrl: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Cargar usuarios guardados (si existen)
+    const data = localStorage.getItem('usuarios');
+    if (data) {
+      this.usuarios = JSON.parse(data);
+    }
+  }
 
   cerrar() {
     this.modalCtrl.dismiss();
@@ -68,29 +79,51 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  // ======================
+  // INICIAR SESIÓN
+  // ======================
   iniciarSesion() {
-    if (!this.usuario || !this.password) {
-      this.mostrarMensaje('Campos incompletos', 'Ingresa usuario y contraseña');
+    if (!this.loginId || !this.password) {
+      this.mostrarMensaje(
+        'Campos incompletos',
+        'Ingresa usuario o correo y contraseña'
+      );
       return;
     }
 
-    // 🔴 SIMULACIÓN BD
-    if (this.usuario !== 'admin') {
-      this.mostrarMensaje('Usuario no existe', 'El usuario no está registrado');
+    const usuarioEncontrado = this.usuarios.find(
+      u =>
+        (u.usuario === this.loginId || u.email === this.loginId) &&
+        u.password === this.password
+    );
+
+    if (!usuarioEncontrado) {
+      this.mostrarMensaje('Error', 'Credenciales incorrectas');
       return;
     }
 
-    if (this.password !== '1234') {
-      this.mostrarMensaje('Contraseña incorrecta', 'Verifica tu contraseña');
-      return;
-    }
+    // 👉 GUARDAR USUARIO LOGUEADO (CLAVE PARA QUE FUNCIONE INICIO)
+    localStorage.setItem('usuario', usuarioEncontrado.usuario);
 
-    this.mostrarMensaje('Bienvenido', 'Inicio de sesión exitoso');
-    this.modalCtrl.dismiss({ usuario: this.usuario });
+    this.mostrarMensaje(
+      'Bienvenido',
+      `Hola ${usuarioEncontrado.nombre}`
+    );
+
+    this.modalCtrl.dismiss();
   }
 
+  // ======================
+  // REGISTRO
+  // ======================
   registrarse() {
-    if (!this.nombre || !this.email || !this.passwordReg || !this.confirmar) {
+    if (
+      !this.nombre ||
+      !this.usuarioReg ||
+      !this.email ||
+      !this.passwordReg ||
+      !this.confirmar
+    ) {
       this.mostrarMensaje('Campos incompletos', 'Completa todos los campos');
       return;
     }
@@ -105,12 +138,42 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    if (this.email === 'admin@mail.com') {
-      this.mostrarMensaje('Correo existente', 'Este correo ya está registrado');
+    const existe = this.usuarios.some(
+      u => u.usuario === this.usuarioReg || u.email === this.email
+    );
+
+    if (existe) {
+      this.mostrarMensaje(
+        'Cuenta existente',
+        'Usuario o correo ya registrado'
+      );
       return;
     }
 
-    this.mostrarMensaje('Registro exitoso', 'Cuenta creada correctamente');
+    const nuevoUsuario: Usuario = {
+      nombre: this.nombre,
+      usuario: this.usuarioReg,
+      email: this.email,
+      password: this.passwordReg
+    };
+
+    this.usuarios.push(nuevoUsuario);
+
+    // 👉 GUARDAR "BASE DE DATOS" VISUAL
+    localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
+
+    this.mostrarMensaje(
+      'Registro exitoso',
+      'Ahora puedes iniciar sesión'
+    );
+
     this.cambiarModo('login');
+
+    // Limpiar campos
+    this.nombre = '';
+    this.usuarioReg = '';
+    this.email = '';
+    this.passwordReg = '';
+    this.confirmar = '';
   }
 }

@@ -1,16 +1,54 @@
 <!-- ================= BARRA DE NAVEGACIÓN ================= -->
 <ion-header slot="fixed" class="top-bar">
   <ion-toolbar>
+
     <div class="nav-wrapper">
+
       <nav class="nav-links">
         <a routerLink="/nosotros">Nosotros</a>
         <a routerLink="/inicio">Inicio</a>
         <a routerLink="/practica">Práctica</a>
         <a routerLink="/juego">Juego de mesa</a>
       </nav>
+
+      <!-- NO LOGUEADO -->
+      <ion-button
+        *ngIf="!usuario"
+        class="login-btn"
+        fill="outline"
+        (click)="abrirLogin()"
+      >
+        Iniciar sesión
+      </ion-button>
+
+      <!-- LOGUEADO -->
+      <ion-button
+        *ngIf="usuario"
+        class="login-btn"
+        fill="clear"
+        (click)="abrirMenuUsuario()"
+      >
+        👤 {{ usuario }}
+      </ion-button>
+
     </div>
+
   </ion-toolbar>
 </ion-header>
+
+<!-- POPOVER USUARIO -->
+<ion-popover
+  [isOpen]="menuUsuarioAbierto"
+  (didDismiss)="menuUsuarioAbierto = false"
+>
+  <ng-template>
+    <ion-list>
+      <ion-item button (click)="cerrarSesion()">
+        Cerrar sesión
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-popover>
 
 <!-- ================= CONTENIDO ================= -->
 <ion-content fullscreen class="home-content">

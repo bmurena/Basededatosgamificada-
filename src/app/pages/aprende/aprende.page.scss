@@ -2,13 +2,10 @@
   --background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 70%);
   color: #ffffff;
 }
-
-/* Barra */
+/* ===== BARRA SUPERIOR (IGUAL A INICIO) ===== */
 .top-bar {
   --background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  position: relative;
-  z-index: 1000;
 }
 
 ion-header {
@@ -21,13 +18,22 @@ ion-toolbar {
   align-items: center;
 }
 
-/* Navegación centrada */
-.nav-links {
-  display: flex;
-  justify-content: center;
+/* ===== WRAPPER DEL NAV ===== */
+.nav-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
+  padding: 0 60px;
+}
+
+/* ===== LINKS CENTRADOS ===== */
+.nav-links {
+  justify-self: center;
+  display: flex;
   gap: 50px;
 }
+
 .nav-links a {
   text-decoration: none;
   color: #e0e0e0;
@@ -37,6 +43,7 @@ ion-toolbar {
   text-transform: uppercase;
   position: relative;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-links a::after {
@@ -59,13 +66,33 @@ ion-toolbar {
   width: 60%;
 }
 
+/* ===== BOTÓN LOGIN ===== */
+.login-btn {
+  justify-self: end;
+  --border-color: #4c6fff;
+  --color: #4c6fff;
+  --border-radius: 30px;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 42px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-btn:hover {
+  --background: #4c6fff;
+  --color: #ffffff;
+}
+
+
 /* Contenido Aprende */
 .learn-container {
   max-width: 900px;
   margin: auto;
-  padding: 80px 30px;
+  padding: 0px 10px 80px;
   text-align: center;
 }
+
 
 .learn-container h1 {
   font-size: 48px;
@@ -125,3 +152,4 @@ ion-toolbar {
 ion-content {
   --padding-top: 90px;
 }
+

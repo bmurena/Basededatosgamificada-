@@ -3,7 +3,6 @@
   --background: radial-gradient(circle at right, #1a1a1a 0%, #0d0d0d 60%);
   color: #fff;
 }
-
 /* ================= BARRA ================= */
 .top-bar {
   --background: rgba(0, 0, 0, 0.6);
@@ -13,23 +12,30 @@
 ion-toolbar {
   height: 90px;
   display: flex;
+  align-items: center;
+}
+
+/* Wrapper igual a INICIO */
+.nav-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 60px;
+}
+
+/* Menú centrado */
+.nav-links {
+  grid-column: 2;
+  display: flex;
+  gap: 48px;
   justify-content: center;
   align-items: center;
 }
 
-.nav-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 48px;
-}
-
+/* Links */
 .nav-links ion-router-link {
- text-decoration: none;
+  text-decoration: none;
   color: #e0e0e0;
   font-size: 18px;
   font-weight: 500;
@@ -37,22 +43,49 @@ ion-toolbar {
   text-transform: uppercase;
   position: relative;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
+/* Línea hover */
+.nav-links ion-router-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #3c39e6;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
 
 .nav-links ion-router-link:hover {
   color: #3c39e6;
 }
 
-.nav-links a:hover::after {
+.nav-links ion-router-link:hover::after {
   width: 60%;
 }
-/* ================= CONTENEDOR ================= */
-.quiz-container {
-  max-width: 900px;
-  margin: auto;
-  padding: 120px 20px 60px;
+
+/* Botón login */
+.login-btn {
+  grid-column: 3;
+  justify-self: end;
+  --border-color: #4c6fff;
+  --color: #4c6fff;
+  --border-radius: 30px;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 42px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+.login-btn:hover {
+  --background: #4c6fff;
+  --color: #ffffff;
+}
+
 
 /* ================= SELECTOR DE NIVELES ================= */
 .levels-grid {

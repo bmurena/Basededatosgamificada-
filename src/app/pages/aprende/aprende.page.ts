@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { ModalController } from '@ionic/angular/standalone';
+
 import {
   IonContent,
   IonHeader,
   IonToolbar,
   IonCard,
   IonCardContent,
-  IonButton
+  IonButton,
+  IonPopover,
+  IonList,
+  IonItem
 } from '@ionic/angular/standalone';
+
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-aprende',
@@ -16,21 +23,34 @@ import {
   styleUrls: ['./aprende.page.scss'],
   standalone: true,
   imports: [
-  RouterModule,
-  IonContent,
-  IonHeader,
-  IonToolbar,
-  IonCard,
-  IonCardContent,
-  IonButton,
-  CommonModule
-]
-
+    RouterModule,
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonCard,
+    IonCardContent,
+    IonButton,
+    IonPopover,
+    IonList,
+    IonItem,
+    CommonModule
+  ]
 })
 export class AprendePage {
+
   nivelSeleccionado: number | null = null;
 
-  constructor(private router: Router) {}
+  usuario: string | null = null;
+  menuUsuarioAbierto = false;
+
+  constructor(
+    private router: Router,
+    private modalCtrl: ModalController
+  ) {}
+
+  ionViewWillEnter() {
+    this.usuario = localStorage.getItem('usuario');
+  }
 
   seleccionarNivel(nivel: number) {
     this.nivelSeleccionado =
@@ -42,5 +62,27 @@ export class AprendePage {
       queryParams: { nivel: this.nivelSeleccionado }
     });
   }
-}
 
+  /** 🔐 LOGIN */
+  async abrirLogin() {
+    const modal = await this.modalCtrl.create({
+      component: LoginPage,
+      cssClass: 'login-modal'
+    });
+    await modal.present();
+
+    modal.onDidDismiss().then(() => {
+      this.usuario = localStorage.getItem('usuario');
+    });
+  }
+
+  abrirMenuUsuario() {
+    this.menuUsuarioAbierto = true;
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('usuario');
+    this.usuario = null;
+    this.menuUsuarioAbierto = false;
+  }
+}

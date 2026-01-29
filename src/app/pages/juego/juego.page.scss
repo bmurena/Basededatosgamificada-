@@ -22,16 +22,22 @@ ion-toolbar {
   align-items: center;
 }
 
+
 .nav-wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 60px;
 }
 
+
 .nav-links {
+  justify-self: center;
   display: flex;
   gap: 50px;
 }
+
 
 .nav-links a {
   text-decoration: none;
@@ -44,6 +50,7 @@ ion-toolbar {
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
 
 /* Línea hover */
 .nav-links a::after {
@@ -154,4 +161,87 @@ ion-input {
   .game-container {
     padding-top: 110px;
   }
+}
+
+/* ===== ESPACIO CARTA ===== */
+.card-space {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== FLIP CARD ===== */
+.flip-card {
+  width: 280px;
+  height: 380px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* CARAS */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* REVERSO */
+.flip-card-front {
+  background: #000;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* FRENTE */
+.flip-card-back {
+  background: #1a1a1a;
+  color: #ffffff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+
+/* Botón login */
+.login-btn {
+  justify-self: end;
+  --border-color: #4c6fff;
+  --color: #4c6fff;
+  --border-radius: 30px;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 42px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-btn:hover {
+  --background: #4c6fff;
+  --color: #ffffff;
 }

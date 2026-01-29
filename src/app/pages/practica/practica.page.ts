@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -9,8 +9,10 @@ import {
   IonButton,
   IonCard,
   IonCardContent,
-  IonRouterLink
+  IonRouterLink,
+  ModalController
 } from '@ionic/angular/standalone';
+import { LoginPage } from '../login/login.page';
 
 interface Pregunta {
   texto: string;
@@ -36,15 +38,53 @@ interface Pregunta {
     FormsModule
   ]
 })
+export class PracticaPage implements OnInit {
 
-export class PracticaPage {
+  /** 🔐 USUARIO */
+ usuario: string | null = null;
+  menuUsuarioAbierto = false;
 
+  /** QUIZ */
   nivelActual = 0;
   preguntaActual = 0;
   feedback = '';
 
-  preguntas: { [key: number]: Pregunta[] } = {
+  constructor(private modalCtrl: ModalController) {}
 
+  ngOnInit() {
+    this.usuario = localStorage.getItem('usuario');
+  }
+
+  async abrirLogin() {
+    const modal = await this.modalCtrl.create({
+      component: LoginPage
+    });
+
+    modal.onDidDismiss().then(res => {
+      if (res.data?.usuario) {
+        this.usuario = res.data.usuario;
+        localStorage.setItem('usuario', res.data.usuario);
+      }
+    });
+
+    await modal.present();
+  }
+
+  abrirMenuUsuario() {
+    const cerrar = confirm('¿Deseas cerrar sesión?');
+    if (cerrar) {
+      localStorage.removeItem('usuario');
+      this.usuario = null;
+    }
+
+     cerrarSesion() 
+    localStorage.removeItem('usuario');
+    this.usuario = null;
+    this.menuUsuarioAbierto = false;
+  
+  }
+
+    preguntas: { [key: number]: Pregunta[] } = {
     /* ===== NIVEL 1 – FUNDAMENTOS ===== */
     1: [
       {
@@ -336,5 +376,9 @@ export class PracticaPage {
       this.nivelActual = 0;
     }
   }
+}
+
+function cerrarSesion() {
+  throw new Error('Function not implemented.');
 }
 

@@ -1,6 +1,8 @@
 <ion-header class="top-bar">
   <ion-toolbar>
+
     <div class="nav-wrapper">
+
       <nav class="nav-links">
         <a href="/nosotros">Nosotros</a>
         <a href="/aprende">Aprende</a>
@@ -8,16 +10,43 @@
         <a href="/juego">Juego de mesa</a>
       </nav>
 
+      <!-- BOTÓN / USUARIO -->
       <ion-button
+        *ngIf="!usuario"
         class="login-btn"
         fill="outline"
         (click)="abrirLogin()"
       >
         Iniciar sesión
       </ion-button>
+
+      <ion-button
+        *ngIf="usuario"
+        class="login-btn"
+        fill="clear"
+        (click)="abrirMenuUsuario()"
+      >
+        👤 {{ usuario }}
+      </ion-button>
+
     </div>
+
   </ion-toolbar>
 </ion-header>
+
+<!-- POPOVER USUARIO -->
+<ion-popover
+  [isOpen]="menuUsuarioAbierto"
+  (didDismiss)="menuUsuarioAbierto = false"
+>
+  <ng-template>
+    <ion-list>
+      <ion-item button (click)="cerrarSesion()">
+        Cerrar sesión
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-popover>
 
 
 <ion-content fullscreen class="home-content">
@@ -25,8 +54,6 @@
   <div class="hero">
 
     <div class="hero-text">
-      
-
       <h1>
         Base de Datos <br>
         <span>Gamificada</span>
@@ -45,4 +72,3 @@
   </div>
 
 </ion-content>
-

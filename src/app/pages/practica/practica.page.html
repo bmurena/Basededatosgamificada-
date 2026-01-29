@@ -8,6 +8,27 @@
         <ion-router-link routerLink="/inicio">Inicio</ion-router-link>
         <ion-router-link routerLink="/juego">Juego de mesa</ion-router-link>
       </nav>
+
+      <!-- NO LOGUEADO -->
+      <ion-button
+        *ngIf="!usuario"
+        class="login-btn"
+        fill="outline"
+        (click)="abrirLogin()"
+      >
+        Iniciar sesión
+      </ion-button>
+
+      <!-- LOGUEADO -->
+      <ion-button
+        *ngIf="usuario"
+        class="login-btn"
+        fill="clear"
+        (click)="abrirMenuUsuario()"
+      >
+        👤 {{ usuario }}
+      </ion-button>
+
     </div>
   </ion-toolbar>
 </ion-header>

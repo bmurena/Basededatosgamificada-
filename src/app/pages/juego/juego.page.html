@@ -7,10 +7,27 @@
         <a routerLink="/practica">Practica</a>
         <a routerLink="/inicio">Inicio</a>
       </div>
+      
+       <ion-button
+        *ngIf="!usuario"
+        class="login-btn"
+        fill="outline"
+        (click)="abrirLogin()"
+      >
+        Iniciar sesión
+      </ion-button>
+
+      <ion-button
+        *ngIf="usuario"
+        class="login-btn"
+        fill="clear"
+        (click)="abrirMenuUsuario()"
+      >
+        👤 {{ usuario }}
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-header>
-
 
 <ion-content fullscreen class="home-content">
 
@@ -19,30 +36,54 @@
     <!-- BUSCAR CARTA -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title> Busca la carta de juego</ion-card-title>
+        <ion-card-title>Busca la carta de juego</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
+
         <ion-input
           type="number"
           placeholder="Ingresa un número del 1 al 18"
-          [(ngModel)]="numeroCarta"
-        ></ion-input>
+          [(ngModel)]="numeroCarta">
+        </ion-input>
 
         <ion-button expand="block" class="search-btn" (click)="buscarCarta()">
           Buscar carta
         </ion-button>
 
-        <p class="card-text" *ngIf="textoCarta">
-          {{ textoCarta }}
+        <!-- MENSAJE ERROR -->
+        <p class="card-text" *ngIf="mensajeError">
+          {{ mensajeError }}
         </p>
+
+        <!-- ESPACIO PARA LA CARTA -->
+        <div class="card-space">
+
+          <div class="flip-card" [class.flipped]="cartaMostrada">
+            <div class="flip-card-inner">
+
+              <!-- REVERSO -->
+              <div class="flip-card-front">
+                <img src="assets/multimedia/reverso.png" alt="Reverso de carta">
+              </div>
+
+              <!-- FRENTE -->
+              <div class="flip-card-back">
+                <p>{{ textoCarta }}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
       </ion-card-content>
     </ion-card>
 
     <!-- DESCARGA -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title> Descarga juego de mesa</ion-card-title>
+        <ion-card-title>Descarga juego de mesa</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
@@ -53,9 +94,8 @@
         <ion-button
           expand="block"
           color="primary"
-          href="https://TU-LINK-AQUI.com"
-          target="_blank"
-        >
+          href="https://drive.google.com/file/d/1C-y6WWbroPtpyN7wr9bSHoyRGAQxV2ur/view?usp=sharing"
+          target="_blank">
           Descargar para imprimir
         </ion-button>
       </ion-card-content>
