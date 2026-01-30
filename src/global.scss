@@ -55,3 +55,32 @@ ion-backdrop {
 ion-content {
   --background: transparent !important;
 }
+
+
+/* FORZAR MODO OSCURO SIEMPRE */
+:root {
+  color-scheme: dark;
+
+  --ion-background-color: #0d0d0d;
+  --ion-text-color: #ffffff;
+
+  --ion-toolbar-background: #0f0f0f;
+  --ion-toolbar-color: #ffffff;
+
+  --ion-card-background: #1a1a1a;
+}
+
+/* Bloquear cambios automáticos del sistema */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: dark;
+
+    --ion-background-color: #0d0d0d;
+    --ion-text-color: #ffffff;
+
+    --ion-toolbar-background: #0f0f0f;
+    --ion-toolbar-color: #ffffff;
+
+    --ion-card-background: #1a1a1a;
+  }
+}
