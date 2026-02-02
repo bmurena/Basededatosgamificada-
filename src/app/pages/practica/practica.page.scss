@@ -85,16 +85,16 @@ ion-toolbar {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 26px;
-  max-width: 700px;
+  max-width: 1400px;
   margin: 60px auto 0;
   justify-items: center;
 }
 
 .level-box {
-  width: 120px;
-  height: 120px;
+  width: 260px;
+  height: 380px;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,7 +104,7 @@ ion-toolbar {
 }
 
 .level-box span {
-  font-size: 13px;
+  font-size: 18px;
   color: #bdbdbd;
   letter-spacing: 1px;
 }
@@ -137,7 +137,7 @@ ion-card-content {
 .option-btn {
   width: 100%;
   margin-top: 14px;
-  --background: rgb(33, 33, 33);
+  --background: rgb(255, 255, 255);
   --border-radius: 14px;
   height: 48px;
   text-transform: none;

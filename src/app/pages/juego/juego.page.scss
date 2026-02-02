@@ -52,7 +52,6 @@ ion-toolbar {
 }
 
 
-/* Línea hover */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -73,18 +72,13 @@ ion-toolbar {
   width: 60%;
 }
 
-/* ===============================
-   CONTENIDO JUEGO
-================================ */
 .game-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 120px 20px 80px;
 }
 
-/* ===============================
-   TARJETAS
-================================ */
+
 ion-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
@@ -92,7 +86,6 @@ ion-card {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* Títulos */
 ion-card-title {
   text-align: center;
   font-size: 26px;
@@ -100,17 +93,13 @@ ion-card-title {
   color: #ffffff;
 }
 
-/* ===============================
-   INPUT
-================================ */
+
 ion-input {
   margin-top: 16px;
   font-size: 16px;
 }
 
-/* ===============================
-   BOTONES
-================================ */
+
 .search-btn {
   margin-top: 20px;
   --background: #3c39e6;
@@ -125,9 +114,7 @@ ion-input {
   --background: #3c39e6;
 }
 
-/* ===============================
-   TEXTO CARTA
-================================ */
+
 .card-text {
   margin-top: 20px;
   font-size: 18px;
@@ -136,9 +123,6 @@ ion-input {
   line-height: 1.6;
 }
 
-/* ===============================
-   DESCARGA
-================================ */
 .download-text {
   text-align: center;
   margin-bottom: 20px;
@@ -146,9 +130,7 @@ ion-input {
   font-size: 16px;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+
 @media (max-width: 768px) {
   .nav-links {
     gap: 30px;
@@ -244,4 +226,41 @@ ion-input {
 .login-btn:hover {
   --background: #4c6fff;
   --color: #ffffff;
+}
+
+/* ===== REGLAS DEL JUEGO ===== */
+.rules-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.rules-card ion-card-title {
+  text-align: center;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-list > li {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d0d0d0;
+}
+
+.rules-list ul {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+.rules-list ul li {
+  font-size: 15px;
+  color: #bdbdbd;
 }

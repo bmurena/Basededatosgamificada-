@@ -10,7 +10,6 @@
         <a routerLink="/juego">Juego de mesa</a>
       </nav>
 
-      <!-- NO LOGUEADO -->
       <ion-button
         *ngIf="!usuario"
         class="login-btn"
@@ -20,7 +19,6 @@
         Iniciar sesión
       </ion-button>
 
-      <!-- LOGUEADO -->
       <ion-button
         *ngIf="usuario"
         class="login-btn"
@@ -35,7 +33,6 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- POPOVER USUARIO -->
 <ion-popover
   [isOpen]="menuUsuarioAbierto"
   (didDismiss)="menuUsuarioAbierto = false"
@@ -50,27 +47,42 @@
 </ion-popover>
 
 <ion-content fullscreen class="nosotros-content">
-  <div class="nosotros-wrapper">
-    <div class="nosotros-box">
-      <h1>Sobre el <span>Proyecto</span></h1>
+  <div class="about-container">
+
+    <!-- COLUMNA IMAGEN -->
+    <div class="about-image">
+      <img src="assets/multimedia/nosotros.png" alt="Sobre el proyecto">
+    </div>
+
+    <!-- COLUMNA TEXTO -->
+    <div class="about-text">
+      <span class="about-tag">Sobre el proyecto</span>
+
+      <h1>
+        Aprendizaje de <span>Bases de Datos</span><br />
+        mediante Gamificación
+      </h1>
 
       <p>
-        <strong>Aprendizaje de Base de Datos mediante Gamificación</strong>
-        es un proyecto desarrollado por estudiantes del
-        <strong>Instituto Tecnológico Sudamericano</strong>.
+        Este proyecto fue desarrollado por estudiantes del
+        <strong>Instituto Tecnológico Sudamericano</strong>,
+        con el objetivo de innovar la forma en que se enseñan
+        los fundamentos de bases de datos.
       </p>
 
       <p>
-        Su objetivo principal es facilitar el aprendizaje de conceptos
-        fundamentales de bases de datos mediante dinámicas interactivas,
-        juegos y retos que fomentan la participación activa del estudiante.
+        A través de dinámicas interactivas, juegos educativos
+        y retos progresivos, se fomenta la participación activa
+        del estudiante y el aprendizaje significativo.
       </p>
 
       <p>
-        Este proyecto está orientado a estudiantes de primeros semestres,
-        integrando tecnología, educación y gamificación para ofrecer una
-        experiencia de aprendizaje práctica, progresiva y motivadora.
+        Está orientado a estudiantes de primeros semestres,
+        integrando tecnología, educación y gamificación para
+        ofrecer una experiencia práctica, moderna y motivadora.
       </p>
     </div>
+
   </div>
 </ion-content>
+

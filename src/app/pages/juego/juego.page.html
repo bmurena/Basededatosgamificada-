@@ -29,11 +29,42 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content fullscreen class="home-content">
+   
 
   <div class="game-container">
+      <ion-card class="rules-card">
+  <ion-card-header>
+    <ion-card-title>Reglas del Juego</ion-card-title>
+  </ion-card-header>
 
-    <!-- BUSCAR CARTA -->
+  <ion-card-content>
+    <ul class="rules-list">
+      <li>El juego se basa en un clásico llamado <strong>Escaleras y Serpientes</strong>.</li>
+
+      <li>
+        Cuando un jugador cae en una <strong>casilla con escalera</strong>,
+        debe tomar una carta y responder la pregunta.
+        <ul>
+          <li> Si responde correctamente, <strong>sube por la escalera</strong>.</li>
+          <li> Si responde incorrectamente, <strong>permanece en la misma casilla</strong>.</li>
+        </ul>
+      </li>
+
+      <li>
+        Cuando un jugador cae en una <strong>casilla con serpiente</strong>,
+        debe tomar una carta y responder la pregunta.
+        <ul>
+          <li> Si responde correctamente, <strong>no baja</strong> por la serpiente.</li>
+          <li> Si responde incorrectamente, <strong>baja por la serpiente</strong>.</li>
+        </ul>
+      </li>
+
+      <li>Gana el jugador que llegue primero a la meta.</li>
+    </ul>
+  </ion-card-content>
+</ion-card>
     <ion-card>
       <ion-card-header>
         <ion-card-title>Busca la carta de juego</ion-card-title>
@@ -51,23 +82,19 @@
           Buscar carta
         </ion-button>
 
-        <!-- MENSAJE ERROR -->
         <p class="card-text" *ngIf="mensajeError">
           {{ mensajeError }}
         </p>
 
-        <!-- ESPACIO PARA LA CARTA -->
         <div class="card-space">
 
           <div class="flip-card" [class.flipped]="cartaMostrada">
             <div class="flip-card-inner">
 
-              <!-- REVERSO -->
               <div class="flip-card-front">
                 <img src="assets/multimedia/reverso.png" alt="Reverso de carta">
               </div>
 
-              <!-- FRENTE -->
               <div class="flip-card-back">
                 <p>{{ textoCarta }}</p>
               </div>
@@ -80,7 +107,6 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- DESCARGA -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>Descarga juego de mesa</ion-card-title>
