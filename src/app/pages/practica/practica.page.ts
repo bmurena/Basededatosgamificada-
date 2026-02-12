@@ -366,10 +366,10 @@ export class PracticaPage implements OnInit {
     const pregunta = this.preguntas[this.nivelActual][this.preguntaActual];
 
     if (opcion === pregunta.correcta) {
-      this.feedback = '✅ Respuesta correcta. Muy bien.';
+      this.feedback = ' Respuesta correcta. Muy bien.';
       this.preguntaActual++;
     } else {
-      this.feedback = '❌ Respuesta incorrecta. Revisa el contenido del nivel en la sección Aprende.';
+      this.feedback = ' Respuesta incorrecta. Revisa el contenido del nivel en la sección Aprende.';
     }
 
     if (this.preguntaActual === 5) {
