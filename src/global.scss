@@ -57,30 +57,39 @@ ion-content {
 }
 
 
-/* FORZAR MODO OSCURO SIEMPRE */
+/* ===== FORZAR COLORES SIEMPRE (CLARO Y OSCURO) ===== */
+
 :root {
   color-scheme: dark;
 
-  --ion-background-color: #0d0d0d;
-  --ion-text-color: #ffffff;
+  --ion-background-color: #0a002d !important;
+  --ion-text-color: #ffffff !important;
 
-  --ion-toolbar-background: #0f0f0f;
-  --ion-toolbar-color: #ffffff;
+  --ion-toolbar-background: #10004b !important;
+  --ion-toolbar-color: #ffffff !important;
 
-  --ion-card-background: #1a1a1a;
+  --ion-card-background: #0a002d !important;
 }
 
-/* Bloquear cambios automáticos del sistema */
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: dark;
+/* Si Ionic activa automáticamente la clase .dark */
+html.dark,
+body.dark,
+ion-app.dark {
+  --ion-background-color: #0a002d !important;
+  --ion-text-color: #ffffff !important;
 
-    --ion-background-color: #0d0d0d;
-    --ion-text-color: #ffffff;
+  --ion-toolbar-background: #10004b !important;
+  --ion-toolbar-color: #ffffff !important;
 
-    --ion-toolbar-background: #0f0f0f;
-    --ion-toolbar-color: #ffffff;
-
-    --ion-card-background: #1a1a1a;
-  }
+  --ion-card-background: #0a002d !important;
 }
+
+/* Fondo forzado por seguridad */
+html,
+body,
+ion-app,
+ion-content {
+  background: #0a002d !important;
+  color: #ffffff !important;
+}
+

@@ -2,10 +2,8 @@
 
   <div class="login-box">
 
-    <!-- CERRAR -->
     <ion-button fill="clear" class="close-btn" (click)="cerrar()">✕</ion-button>
 
-    <!-- TITULO -->
     <h1>{{ modo === 'login' ? 'Iniciar sesión' : 'Crear cuenta' }}</h1>
     <p class="subtitle">
       {{ modo === 'login'
@@ -13,7 +11,6 @@
         : 'Regístrate para comenzar a aprender' }}
     </p>
 
-    <!-- LOGIN -->
     <div *ngIf="modo === 'login'" class="form">
 
       <ion-item>
@@ -42,7 +39,6 @@
 
     </div>
 
-    <!-- REGISTRO -->
     <div *ngIf="modo === 'registro'" class="form">
 
       <ion-item>

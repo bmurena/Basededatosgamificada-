@@ -1,12 +1,10 @@
-/* Fondo general */
 .home-content {
-  --background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  --background: linear-gradient(135deg, #0a002d, #0a002d);
   color: #ffffff;
 }
 
-/* Barra superior */
 .top-bar {
-  --background: rgba(0, 0, 0, 0.6);
+  --background: #0a002d;
   backdrop-filter: blur(10px);
 }
 
@@ -17,7 +15,6 @@ ion-toolbar {
   align-items: center;
 }
 
-/* Contenedor navegación */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -26,7 +23,6 @@ ion-toolbar {
 }
 
 
-/* Links navegación */
 .nav-links {
   display: flex;
   justify-content: center;
@@ -64,8 +60,6 @@ ion-toolbar {
   width: 60%;
 }
 
-/* Hero section */
-/* ===== HERO LAYOUT ===== */
 .hero {
   min-height: calc(100vh - 90px);
   display: grid;
@@ -75,7 +69,6 @@ ion-toolbar {
   gap: 40px;
 }
 
-/* ===== TEXTO IZQUIERDA ===== */
 .hero-text {
   max-width: 620px;
 }
@@ -88,7 +81,6 @@ ion-toolbar {
   display: inline-block;
 }
 
-/* Título principal */
 .hero-text h1 {
   font-size: 68px;
   font-weight: 700;
@@ -100,7 +92,6 @@ ion-toolbar {
   color: #3c39e6;
 }
 
-/* Descripción */
 .hero-text p {
   font-size: 18px;
   line-height: 1.7;
@@ -108,13 +99,11 @@ ion-toolbar {
   max-width: 520px;
 }
 
-/* ===== IMAGEN DERECHA ===== */
 .hero-visual {
   position: relative;
   perspective: 1200px;
 }
 
-/* Imagen flotante */
 .hero-visual img {
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 30px 60px rgba(60, 57, 230, 0.45));
@@ -122,7 +111,6 @@ ion-toolbar {
   z-index: 2;
 }
 
-/* Brillo animado detrás */
 .hero-visual::before {
   content: '';
   position: absolute;
@@ -138,12 +126,11 @@ ion-toolbar {
   z-index: 1;
 }
 
-/* ===== FONDO OSCURO SUAVE ===== */
 .home-content {
   --background: radial-gradient(
     circle at right,
-    #1a1a1a 0%,
-    #0d0d0d 60%
+    #0a002d 0%,
+    #0a002d 60%
   );
 }
 
@@ -159,7 +146,6 @@ ion-toolbar {
   }
 }
 
-/* Pulso de brillo */
 @keyframes glow {
   0% {
     opacity: 0.45;
@@ -175,7 +161,6 @@ ion-toolbar {
   }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 1100px) {
   .hero {
     grid-template-columns: 1fr;
@@ -201,7 +186,6 @@ ion-toolbar {
   }
 }
 
-/* Wrapper del header */
 .nav-wrapper {
   width: 100%;
   display: grid;
@@ -210,14 +194,12 @@ ion-toolbar {
   padding: 0 60px;
 }
 
-/* Menú centrado */
 .nav-links {
   justify-self: center;
   display: flex;
   gap: 40px;
 }
 
-/* Botón login */
 .login-btn {
   justify-self: end;
   --border-color: #4c6fff;
@@ -235,14 +217,12 @@ ion-toolbar {
   --color: #ffffff;
 }
 
-/* ===== USUARIO LOGUEADO ===== */
 .user-box {
   justify-self: end;
   display: flex;
   align-items: center;
 }
 
-/* Contenedor usuario */
 .user-info {
   display: flex;
   flex-direction: column;
@@ -251,7 +231,6 @@ ion-toolbar {
   cursor: default;
 }
 
-/* Nombre usuario */
 .user-name {
   font-size: 14px;
   font-weight: 500;
@@ -260,7 +239,6 @@ ion-toolbar {
   text-transform: uppercase;
 }
 
-/* Cerrar sesión */
 .logout-btn {
   font-size: 12px;
   color: #9fa8ff;

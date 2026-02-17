@@ -6,7 +6,7 @@
 
 
 .top-bar {
-  --background: rgba(36, 36, 36, 0.6);
+  --background: #10004b;
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 1000;
@@ -197,7 +197,7 @@ ion-input {
 
 /* FRENTE */
 .flip-card-back {
-  background: #1a1a1a;
+  background: #10004b;
   color: #ffffff;
   transform: rotateY(180deg);
   display: flex;

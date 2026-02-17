@@ -10,7 +10,6 @@
         <a href="/juego">Juego de mesa</a>
       </nav>
 
-      <!-- BOTÓN / USUARIO -->
       <ion-button
         *ngIf="!usuario"
         class="login-btn"
@@ -34,7 +33,6 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- POPOVER USUARIO -->
 <ion-popover
   [isOpen]="menuUsuarioAbierto"
   (didDismiss)="menuUsuarioAbierto = false"

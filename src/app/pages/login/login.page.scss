@@ -6,7 +6,6 @@
   align-items: center;
 }
 
-/* ===== CAJA PRINCIPAL ===== */
 .login-box {
   width: 100%;
   max-width: 800px;
@@ -15,11 +14,9 @@
   padding: 30px 40px;
   position: relative;
 
-  /* sombra suave, SIN brillo */
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
-/* ===== BOTÓN CERRAR ===== */
 .close-btn {
   position: absolute;
   top: 14px;
@@ -32,7 +29,6 @@
   --color: #ffffff;
 }
 
-/* ===== TITULO ===== */
 .login-box h1 {
   color: #ffffff;
   font-size: 26px;
@@ -41,7 +37,6 @@
   margin-bottom: 6px;
 }
 
-/* ===== SUBTITULO ===== */
 .subtitle {
   color: #9a9a9a;
   font-size: 14px;
@@ -49,13 +44,11 @@
   margin-bottom: 28px;
 }
 
-/* ===== FORMULARIO ===== */
 .form {
   display: flex;
   flex-direction: column;
 }
 
-/* ===== ION ITEM (INPUT CONTENEDOR) ===== */
 ion-item {
   --background: #1c1c1c;
   --border-radius: 14px;
@@ -67,7 +60,6 @@ ion-item {
   --border-width: 0;
 }
 
-/* ===== INPUT ===== */
 ion-input {
   color: #ffffff;
   font-size: 14px;
@@ -77,7 +69,6 @@ ion-input::placeholder {
   color: #8a8a8a;
 }
 
-/* ===== BOTÓN PRINCIPAL ===== */
 .main-btn {
   margin-top: 12px;
   height: 48px;
@@ -95,7 +86,6 @@ ion-input::placeholder {
   --background: #4357e6;
 }
 
-/* ===== TEXTO CAMBIO LOGIN / REGISTRO ===== */
 .switch {
   margin-top: 18px;
   text-align: center;
@@ -113,7 +103,6 @@ ion-input::placeholder {
   text-decoration: underline;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   .login-box {
     margin: 0 16px;

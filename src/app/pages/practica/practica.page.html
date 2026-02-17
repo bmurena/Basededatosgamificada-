@@ -1,4 +1,3 @@
-<!-- ================= BARRA DE NAVEGACIÓN ================= -->
 <ion-header class="top-bar">
   <ion-toolbar>
     <div class="nav-wrapper">
@@ -9,7 +8,6 @@
         <ion-router-link routerLink="/juego">Juego de mesa</ion-router-link>
       </nav>
 
-      <!-- NO LOGUEADO -->
       <ion-button
         *ngIf="!usuario"
         class="login-btn"
@@ -19,7 +17,6 @@
         Iniciar sesión
       </ion-button>
 
-      <!-- LOGUEADO -->
       <ion-button
         *ngIf="usuario"
         class="login-btn"
@@ -33,11 +30,9 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- ================= CONTENIDO ================= -->
 <ion-content fullscreen class="home-content">
   <div class="quiz-container">
 
-    <!-- ================= SELECTOR DE NIVELES ================= -->
     <div class="levels-grid" *ngIf="nivelActual === 0">
       <div
         class="level-box"
@@ -48,7 +43,6 @@
       </div>
     </div>
 
-    <!-- ================= QUIZ ================= -->
     <ion-card *ngIf="nivelActual !== 0">
       <ion-card-content>
 

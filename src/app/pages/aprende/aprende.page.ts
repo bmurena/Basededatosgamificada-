@@ -63,7 +63,6 @@ export class AprendePage {
     });
   }
 
-  /** 🔐 LOGIN */
   async abrirLogin() {
     const modal = await this.modalCtrl.create({
       component: LoginPage,
